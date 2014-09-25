@@ -7,11 +7,9 @@ LED Sign: http://www.brightledsigns.com/products/4_x16_LED_Mini_Desk_Sign-12972-
 ## Install
 
 Ubuntu 12.04
- * sudo apt-get install python-numpy -y
  * (echo y;echo o conf prerequisites_policy follow;echo o conf commit) | sudo cpanm Device::MiniLED
  
 Raspberry Pi - Raspbian (release 2014-01-07)
- * sudo apt-get install python-numpy -y
  * (echo y;echo o conf prerequisites_policy follow;echo o conf commit) | sudo cpanm --dev --verbose Device::MiniLED
   * Seems that cpanm on Raspbian isn't updated on stable, so we have to pull into dev & issue a verbose 
 

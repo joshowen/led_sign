@@ -1,8 +1,6 @@
 #-------------------------------------------------------------------------------
 import re
-import numpy
 import math
-numpy.set_printoptions(threshold=numpy.nan)
 #-------------------------------------------------------------------------------
 class SimpleFont:
     def __init__(self, data):
@@ -75,8 +73,7 @@ class SimpleFont:
             return None
 
         # now render the final array
-        result = numpy.zeros(height * opts["fixed_width"], \
-                dtype=int).reshape((height, opts["fixed_width"]))
+        result = [[0] * opts['fixed_width'] for i in xrange(height)]
 
         for xy in buf:
             bit = buf[xy]
@@ -92,13 +89,8 @@ class SimpleFont:
         else:
             image_width = width
 
-        # Convert to list from numpy array
-        new_result = []
-        for row in result:
-            new_result.append(row.tolist())
-
         # Center the row
-        for i, row in enumerate(new_result):
+        for i, row in enumerate(result):
             # Check how much we should *remove* from right
             slice_total = text_width - image_width
 
@@ -109,9 +101,9 @@ class SimpleFont:
             if slice_total < 0:
                 sliced_row = row[:slice_l]
                 expanded_row = [0] * int(math.fabs(slice_l)) + sliced_row
-                new_result[i] = expanded_row
+                result[i] = expanded_row
 
-        return new_result
+        return result
 #-------------------------------------------------------------------------------
     # Same as render, but renders several lines (its an array), and places them
     # below each other.  Accepts the same options as "render," and also these:
