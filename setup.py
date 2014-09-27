@@ -3,7 +3,7 @@
 from distutils.core import setup
 
 setup(name='led_sign',
-      version='0.1',
+      version='0.2',
       description='Python client to LED signs',
       url='https://github.com/metral/led_sign',
       packages=['led_sign',],
