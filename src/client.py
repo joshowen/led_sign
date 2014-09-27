@@ -56,8 +56,8 @@ class SignClient:
             text_for_sign = Array().zero_one(self._render_multiline(empty))
 
         # Send text to led sign
-        LEDSign(self.lowlevel_path).pic(text_for_sign)
-        return True
+        ret = LEDSign(self.lowlevel_path).pic(text_for_sign)
+        return ret == 0
 
     def _render_multiline(self, msg):
         return self._font.render_multiline(

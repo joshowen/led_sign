@@ -14,6 +14,7 @@ class LEDSign():
         draw = ['/usr/bin/perl', self.SCRIPT, '--type=pic']
         p = Popen(draw, stdout=PIPE, stdin=PIPE, stderr=STDOUT)
         p.communicate(input=data)[0]
+        return p.wait()
 
 
 class Array:
