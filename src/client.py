@@ -11,12 +11,14 @@ from simplefont import sign_font
 
 
 _pwd = dirname(abspath(__file__))
+_default_lowlevel_path = join(_pwd, 'bin')
 _default_glyphs_path = join(_pwd, 'glyphs')
 
 
 class SignClient:
     def __init__(self, glyphs_path=None, lowlevel_path=None):
-        self.lowlevel_path = lowlevel_path if lowlevel_path else _pwd
+        self.lowlevel_path = (lowlevel_path if lowlevel_path
+                              else _default_lowlevel_path)
         self.glyphs_path = glyphs_path if glyphs_path else _default_glyphs_path
         self._font = sign_font(self.glyphs_path)
 

@@ -1,5 +1,5 @@
 import os
-from client import SignClient
+from src.client import SignClient
 
 multiline_test = []
 
@@ -8,6 +8,7 @@ bottom_line = "Ruby is cool too :)"
 multiline_test = [top_line, bottom_line]
 
 pwd = os.path.dirname(os.path.realpath(__file__))
-glyphs_path = '/'.join(['glyphs'])
+lowlevel_path = os.path.join(pwd, 'src', 'bin')
+glyphs_path = os.path.join(pwd, 'src', 'glyphs')
 
-SignClient(glyphs_path, pwd).send_message(multiline_test)
+SignClient(glyphs_path, lowlevel_path).send_message(multiline_test)
