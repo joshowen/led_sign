@@ -70,6 +70,7 @@ class SimpleFont:
 
         # Return error if pic is bigger than allowed for
         if width > opts["fixed_width"]:
+            print "Row is too wide: %d, allowed:%d" % (width, opts["fixed_width"])
             return None
 
         # now render the final array

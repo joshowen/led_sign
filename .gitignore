@@ -9,3 +9,4 @@ lib
 local
 env_settings.py
 muni-led-sign
+.idea/*
